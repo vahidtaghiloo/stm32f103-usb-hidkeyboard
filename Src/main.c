@@ -21,6 +21,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "usb_device.h"
+#include "usb_key_codes.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -34,6 +35,8 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+#define KEY_REPORT_SIZE 8
+uint8_t key_report[KEY_REPORT_SIZE] = {0};
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -44,7 +47,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-
+extern USBD_HandleTypeDef hUsbDeviceFS;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -96,6 +99,16 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+    key_report[2] = KEY_V;
+    key_report[3] = KEY_A;
+    key_report[4] = KEY_H;
+    key_report[5] = KEY_I;
+    key_report[6] = KEY_D;
+    USBD_HID_SendReport(&hUsbDeviceFS, key_report, KEY_REPORT_SIZE);
+    HAL_Delay(100);
+    uint8_t key_report[KEY_REPORT_SIZE] = {0};
+    USBD_HID_SendReport(&hUsbDeviceFS, key_report, KEY_REPORT_SIZE);
+    HAL_Delay(100);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

@@ -198,4 +198,10 @@ clean:
 #######################################
 -include $(wildcard $(BUILD_DIR)/*.d)
 
+#######################################
+# flash stm32
+#######################################
+flash:
+	st-flash write $(BUILD_DIR)/stm32f103-usb-hidkeyboard.bin 0x8000000
+
 # *** EOF ***
