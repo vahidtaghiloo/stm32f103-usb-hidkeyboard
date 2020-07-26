@@ -3,6 +3,7 @@ stm32f103 HAL usb hid keyboard
 
 ## key_report[8]
 
+|        |              |
 | :----: | :----------: |
 | byte0  | ReportID |
 | byte1  | Modifier Key |
