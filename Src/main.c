@@ -99,11 +99,11 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    key_report[2] = KEY_V;
-    key_report[3] = KEY_A;
-    key_report[4] = KEY_H;
-    key_report[5] = KEY_I;
-    key_report[6] = KEY_D;
+    key_report[3] = KEY_V;
+    key_report[4] = KEY_A;
+    key_report[5] = KEY_H;
+    key_report[6] = KEY_I;
+    key_report[7] = KEY_D;
     USBD_HID_SendReport(&hUsbDeviceFS, key_report, KEY_REPORT_SIZE);
     HAL_Delay(100);
     uint8_t key_report[KEY_REPORT_SIZE] = {0};
